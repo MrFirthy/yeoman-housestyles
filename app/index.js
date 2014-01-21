@@ -10,6 +10,8 @@ var HousestylesGenerator = module.exports = function HousestylesGenerator(args, 
   this.on('end', function () {
     // this.installDependencies({ skipInstall: options['skip-install'] });
     console.log("You're all done homie!");
+    console.log("(>' ')> Hacky Hedgehog <(' '<)");
+    console.log("______________________________")
   });
 
   // this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -28,10 +30,17 @@ HousestylesGenerator.prototype.askFor = function askFor() {
     name: 'modernizrUse',
     message: 'Would you like to use Modernizr?',
     default: true
+  },
+  {
+    type: 'confirm',
+    name: 'icomoonUse',
+    message: 'Would you like to use the Icomoon font set?',
+    default: true
   }];
 
   this.prompt(prompts, function (props) {
     this.modernizrUse = props.modernizrUse;
+    this.icomoonUse = props.icomoonUse;
 
     cb();
   }.bind(this));
@@ -51,7 +60,10 @@ HousestylesGenerator.prototype.app = function app() {
   }
   this.copy('index.html', 'index.html');
   this.copy('README.md', 'README.md');
-  this.copy('styleguide.html', 'styleguide.html');
+
+  if(this.icomoonUse == true){
+    this.copy('styleguide.html', 'styleguide.html');
+  }
 
   this.directory('static', 'static');
 };
