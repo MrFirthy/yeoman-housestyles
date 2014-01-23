@@ -25,31 +25,66 @@ HousestylesGenerator.prototype.askFor = function askFor() {
   // have Yeoman greet the user.
   console.log(this.yeoman);
 
-  var prompts = [{
-    type: 'confirm',
-    name: 'modernizrUse',
-    message: 'Would you like to use Modernizr?',
-    default: true
-  },
+  var prompts = [
+  // {
+  //   type: 'confirm',
+  //   name: 'modernizrUse',
+  //   message: 'Would you like to use Modernizr?',
+  //   default: true
+  // },
+  // {
+  //   type: 'confirm',
+  //   name: 'icomoonUse',
+  //   message: 'Would you like to use the Icomoon font set?',
+  //   default: true
+  // },
+  // {
+  //   type: 'confirm',
+  //   name: 'responsiveUse',
+  //   message: 'Would you like to add responsive styles?',
+  //   default: true
+  // },
   {
-    type: 'confirm',
-    name: 'icomoonUse',
-    message: 'Would you like to use the Icomoon font set?',
-    default: true
-  },
-  {
-    type: 'confirm',
-    name: 'responsiveUse',
-    message: 'Would you like to add responsive styles?',
-    default: true
-  }];
+    type: 'checkbox',
+    name: 'features',
+    message: 'What more would you like?',
+    choices: [{
+      name: 'Icomoon',
+      value: 'icomoonUse',
+      checked: true
+    }, {
+      name: 'Responsive Styles',
+      value: 'responsiveUse',
+      checked: true
+    }, {
+      name: 'Modernizr',
+      value: 'modernizrUse',
+      checked: true
+    }]
+    }];
 
-  this.prompt(prompts, function (props) {
-    this.modernizrUse = props.modernizrUse;
-    this.icomoonUse = props.icomoonUse;
-    this.responsiveUse = props.responsiveUse;
+  // this.prompt(prompts, function (props) {
+  //   this.modernizrUse = props.modernizrUse;
+  //   this.icomoonUse = props.icomoonUse;
+  //   this.responsiveUse = props.responsiveUse;
+  //   cb();
+  // }.bind(this));
+
+  this.prompt(prompts, function (answers) {
+    var features = answers.features;
+
+
+    function hasFeature(feat) { return features.indexOf(feat) !== -1; }
+
+    // manually deal with the response, get back and store the results.
+    // we change a bit this way of doing to automatically do this in the self.prompt() method.
+    this.modernizrUse = hasFeature('modernizrUse');
+    this.icomoonUse = hasFeature('icomoonUse');
+    this.responsiveUse = hasFeature('responsiveUse');
+
     cb();
   }.bind(this));
+
 };
 
 HousestylesGenerator.prototype.app = function app() {
@@ -84,7 +119,7 @@ HousestylesGenerator.prototype.app = function app() {
     this.copy('static/css/less/icomoon.less', 'static/css/less/icomoon.less');
   }
   //css
-  if(responsiveUse == true) {
+  if(this.responsiveUse == true) {
     this.copy('static/css/styles-responsive.css', 'static/css/styles-responsive.css');
     this.copy('static/css/less/styles-responsive.less', 'static/css/less/styles-responsive.less');
     this.copy('static/css/less/forms-responsive.less', 'static/css/less/forms-responsive.less');

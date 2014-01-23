@@ -4,7 +4,6 @@
 <!--[if lt IE 9]>
 <script src="static/js/vendor/html5shiv.js"></script>
 <![endif]-->
-
     <title>blank page</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="initial-scale=1.0">
@@ -14,25 +13,15 @@
     <!--[if lt IE 8 ]>
         <link rel="stylesheet" type="text/css" href="static/css/mobile-styles.css"/>
     <![endif]-->
-
-    <!-- 
-    OPTIONAL INCLUDES:
-    If you have chosen one of the following during setup, simply uncomment the corresponding line:
-    -->
-    
-    <!-- 
-    Mobile Stylesheet   
+    <% if (responsiveUse) { %>
     <link rel="stylesheet" media="screen and (min-width:0) and (max-width:767px)" href="static/css/styles-responsive.css"/> 
-    -->
-    <!-- 
-    Modernizr (Move me to the bottom please)
+    <% } %>
+    <% if (modernizrUse) { %>
     <script type="text/javascript" src="static/js/vendor/modernizr.js"></script>
-    -->
-    <!--
-    Icomoon
+    <% } %>
+    <% if(icomoonUse) { %>
     <link rel="stylesheet" type="text/css" href="static/css/icomoon.css"/>
-    -->
-
+    <% } %>
 </head>
 
 <!--[if lt IE 7 ]>				<body class="no-js ie ie6"> <![endif]-->
