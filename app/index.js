@@ -9,9 +9,18 @@ var HousestylesGenerator = module.exports = function HousestylesGenerator(args, 
 
   this.on('end', function () {
     // this.installDependencies({ skipInstall: options['skip-install'] });
-    console.log("You're all done homie!");
-    console.log("(>' ')> Hacky Hedgehog <(' '<)");
-    console.log("______________________________")
+    console.log("             (\\-“””””-/)    ");
+console.log("           .’           '.   ");
+console.log("          /  __       __  \\  ");
+console.log("         <  / O\\     / O\\  >");
+console.log("         <  \\__/  X  \\__/  >");
+console.log("         <   |         |   >");
+console.log("         <    (“)   (“)    >");
+console.log("          \\   (“)___(“)   / ");
+console.log("           `._         _.'  ");
+console.log("              '-.....-'     ");
+console.log(" ");
+console.log("    /*/ We <3 Hacky Hedgehog /*/");
   });
 
   // this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -152,6 +161,8 @@ HousestylesGenerator.prototype.app = function app() {
   this.copy('static/css/less/type.less', 'static/css/less/type.less');
   this.copy('static/css/less/utility.less', 'static/css/less/utility.less');
   this.copy('static/css/less/variables.less', 'static/css/less/variables.less');
+
+  // this.copy('https://raw2.github.com/tangentsnowball/house-styles/master/blank.html', 'testytest.html');
 };
 
 HousestylesGenerator.prototype.projectfiles = function projectfiles() {
