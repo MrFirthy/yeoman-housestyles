@@ -23,3 +23,5 @@ To-Do
 
 Show version number of house-styles that it is using
 Link files to tangent housestyles repo to avoid constantly updating.
+
+• Implement Grunt for server support and project minification
