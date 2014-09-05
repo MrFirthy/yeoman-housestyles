@@ -135,8 +135,6 @@ HousestylesGenerator.prototype.app = function app() {
   this.copy('README.md', 'README.md');
   this.copy('styleguide.html', 'styleguide.html');
 
-  //this.directory('static', 'static');
-
   //styleguide
   this.directory('static/styleguide', 'static/styleguide');
   //js
@@ -206,8 +204,6 @@ HousestylesGenerator.prototype.app = function app() {
 
   this.copy('static/css/less/styles.less', 'static/css/less/styles.less');
 
-  console.log(this.tabUse);
-
 
   // this.copy('https://raw2.github.com/tangentsnowball/house-styles/master/blank.html', 'testytest.html');
 };
@@ -229,8 +225,7 @@ HousestylesGenerator.prototype.styleLessChanges = function styleLessChanges() {
       insertTabResponsive = '@import "tabs-responsive.less";',
       insertPopup = '@import "popups.less";',
       insertIcon = '@import "icons.less";',
-      insertAlert = '@import "alerts.less";',
-      insertFake = '@import "fake.less";';
+      insertAlert = '@import "alerts.less";';
 
   console.log(this.tabUse);
 

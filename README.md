@@ -17,11 +17,7 @@ Once installed, run:
 make a new directory and cd in to it
 run yo housestyles
 
+You will be presented with a list of checkboxes that do the following:
 
-To-Do
-==================
-
-Show version number of house-styles that it is using
-Link files to tangent housestyles repo to avoid constantly updating.
-
-• Implement Grunt for server support and project minification
+- Allow you to select a range of features you may want
+- Allow you to select any additional CSS packages you may want
