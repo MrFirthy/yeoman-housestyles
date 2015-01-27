@@ -10,9 +10,8 @@ Quick setup (to be completed)
 - Install Yeoman
 
 Once installed, run:
-- yo generator
-- yo generator:generator
-- sudo npm link (or whatever the equivalent for sudo is on windows)
+
+- sudo npm link
 
 make a new directory and cd in to it
 run yo housestyles
