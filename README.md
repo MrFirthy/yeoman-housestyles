@@ -1,22 +1,48 @@
-yeoman-housestyles
+Yeoman Housestyles
 ==================
 
-A yeoman setup to generate a standards-compliant project from the command line.
+A Yeoman setup to generate a standards-compliant project from the command line with customisable features.  
+This project is based on the house styles repository by Tangent Snowball, which you can find [here](https://github.com/tangentsnowball/house-styles)
 
+---
 
-Quick setup (to be completed)
+## Quick setup  
 
-- Install Node
-- Install Yeoman
+The following needs to be completed before you can use this generator:  
 
-Once installed, run:
++ Install Node ([Direct download](http://nodejs.org/download/))
++ Install Yeoman `npm install -g yo` (this may require sudo)  
 
-- sudo npm link
+Once these have been installed, clone the repository and `cd` into it. Then run:  
+  
+`sudo npm link`  
+  
+This will create a link between this code and Yeoman so it can be recognised as a generator.  
 
-make a new directory and cd in to it
-run yo housestyles
+You are all set up!  
 
-You will be presented with a list of checkboxes that do the following:
+---
 
-- Allow you to select a range of features you may want
-- Allow you to select any additional CSS packages you may want
+## Using the generator:  
+
++ Create a directory and `cd` into it.  
++ run `yo housestyles --force` (the force is to automate the ovveriding of the CSS files when they are customised)  
+
+You will be presented with a list of options:  
+
++ Name of project (_Default:_ **_Empty_**) - This will be used for the `<title>` attribute and an `<h1>` on the home page  
++ Features (_Default:_ **_True_**) - A checkbox that enables you to select/deselect features for the project. These include: 
+  * Icomoon (a third-party icon font used in Tangent Snowball's housestyles)  
+  * Modernizr (a third-party service used for feature detection)  
+  * Responsive styles (Tangent Snowball's default responsive styles)  
++ LESS Features (Aspects of the standard house styles):  
+  * Alerts  
+  * Tabs  
+  * Icons  
+  * Popups
+  
+---
+
+## Questions  
+
+If you find anything wrong with the plugin, have issues getting it working, or think of something cool it could do, feel free to submit an issue.

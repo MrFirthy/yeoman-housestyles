@@ -8,22 +8,20 @@ var HousestylesGenerator = module.exports = function HousestylesGenerator(args, 
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
-    // this.installDependencies({ skipInstall: options['skip-install'] });
-console.log("             (\\-“””””-/)    ");
-console.log("           .’           '.   ");
-console.log("          /  __       __  \\  ");
-console.log("         <  / O\\     / O\\  >");
-console.log("         <  \\__/  X  \\__/  >");
-console.log("         <   |         |   >");
-console.log("         <    (“)   (“)    >");
-console.log("          \\   (“)___(“)   / ");
-console.log("           `._         _.'  ");
-console.log("              '-.....-'     ");
-console.log(" ");
-
+    console.log("             (\\-“””””-/)    ");
+    console.log("           .’           '.   ");
+    console.log("          /  __       __  \\  ");
+    console.log("         <  / O\\     / O\\  >");
+    console.log("         <  \\__/  X  \\__/  >");
+    console.log("         <   |         |   >");
+    console.log("         <    (“)   (“)    >");
+    console.log("          \\   (“)___(“)   / ");
+    console.log("           `._         _.'  ");
+    console.log("              '-.....-'     ");
+    console.log(" ");
+    console.log("You're all set up and ready to rock!");
+    console.log("Also that's supposed to be a Hedgehog...");
   });
-
-  // this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
 };
 
 util.inherits(HousestylesGenerator, yeoman.generators.Base);
@@ -35,18 +33,11 @@ HousestylesGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [
-  // {
-  //   type: 'confirm',
-  //   name: 'modernizrUse',
-  //   message: 'Would you like to use Modernizr?',
-  //   default: true
-  // },
-  // {
-  //   type: 'confirm',
-  //   name: 'icomoonUse',
-  //   message: 'Would you like to use the Icomoon font set?',
-  //   default: true
-  // },
+    {
+      type: "input",
+      name: "pageTitle",
+      message: "What should we name this?"
+    },
   // {
   //   type: 'confirm',
   //   name: 'responsiveUse',
@@ -105,6 +96,7 @@ HousestylesGenerator.prototype.askFor = function askFor() {
     function hasFeature(feat) { return features.indexOf(feat) !== -1; }
     function hasLessFeature(feat) { return featuresLess.indexOf(feat) !== -1; }
 
+    this.pageTitle = answers.pageTitle;
     // manually deal with the response, get back and store the results.
     // we change a bit this way of doing to automatically do this in the self.prompt() method.
     this.modernizrUse = hasFeature('modernizrUse');
@@ -204,13 +196,9 @@ HousestylesGenerator.prototype.app = function app() {
 
   this.copy('static/css/less/styles.less', 'static/css/less/styles.less');
 
-
-  // this.copy('https://raw2.github.com/tangentsnowball/house-styles/master/blank.html', 'testytest.html');
 };
 
 HousestylesGenerator.prototype.projectfiles = function projectfiles() {
-  // this.copy('editorconfig', '.editorconfig');
-  // this.copy('jshintrc', '.jshintrc');
 };
 
 
