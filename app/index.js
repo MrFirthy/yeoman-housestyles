@@ -38,12 +38,12 @@ HousestylesGenerator.prototype.askFor = function askFor() {
       name: "pageTitle",
       message: "What should we name this?"
     },
-  // {
-  //   type: 'confirm',
-  //   name: 'responsiveUse',
-  //   message: 'Would you like to add responsive styles?',
-  //   default: true
-  // },
+    {
+      type: 'confirm',
+      name: 'responsiveUse',
+      message: 'Would you like to add responsive styles?',
+      default: true
+    },
     {
       type: 'checkbox',
       name: 'features',
@@ -51,10 +51,6 @@ HousestylesGenerator.prototype.askFor = function askFor() {
       choices: [{
         name: 'Icomoon',
         value: 'icomoonUse',
-        checked: true
-      }, {
-        name: 'Responsive Styles',
-        value: 'responsiveUse',
         checked: true
       }, {
         name: 'Modernizr',
@@ -101,7 +97,8 @@ HousestylesGenerator.prototype.askFor = function askFor() {
     // we change a bit this way of doing to automatically do this in the self.prompt() method.
     this.modernizrUse = hasFeature('modernizrUse');
     this.icomoonUse = hasFeature('icomoonUse');
-    this.responsiveUse = hasFeature('responsiveUse');
+    //this.responsiveUse = hasFeature('responsiveUse');
+    this.responsiveUse = answers.responsiveUse;
 
     this.alertUse = hasLessFeature('alertUse');
     this.tabUse = hasLessFeature('tabUse');
@@ -151,6 +148,9 @@ HousestylesGenerator.prototype.app = function app() {
     if(this.tabUse == true) {
       this.copy('static/css/less/tabs-responsive.less', 'static/css/less/tabs-responsive.less');
     }
+    if(this.popupUse == true) {
+      this.copy('static/css/less/popups-responsive.less', 'static/css/less/popups-responsive.less');
+    }
   }
   this.copy('static/css/boxsizing.htc', 'static/css/boxsizing.htc');
   this.copy('static/css/styles.css', 'static/css/styles.css');
@@ -167,6 +167,8 @@ HousestylesGenerator.prototype.app = function app() {
   this.copy('static/css/less/forms.less', 'static/css/less/forms.less');
   this.copy('static/css/less/grid.less', 'static/css/less/grid.less');
   this.copy('static/css/less/header.less', 'static/css/less/header.less');
+  this.copy('static/css/less/nav.less', 'static/css/less/nav.less');
+  this.copy('static/css/less/wells.less', 'static/css/less/wells.less');
 
   if(this.iconUse == true) {
     this.copy('static/css/less/icons.less', 'static/css/less/icons.less');
@@ -206,20 +208,26 @@ HousestylesGenerator.prototype.styleLessChanges = function styleLessChanges() {
 
   var path = 'static/css/less/styles.less',
       file = this.readFileAsString(path),
-      responsivePath = 'static/css/less/styles-responsive.less',
-      responsiveFile = this.readFileAsString(responsivePath),
       hook = '// Yeoman additions',
       insertTab = '@import "tabs.less";',
-      insertTabResponsive = '@import "tabs-responsive.less";',
       insertPopup = '@import "popups.less";',
       insertIcon = '@import "icons.less";',
       insertAlert = '@import "alerts.less";';
+      if(this.responsiveUse) {
+        var responsivePath = 'static/css/less/styles-responsive.less',
+            responsiveFile = this.readFileAsString(responsivePath),
+            insertTabResponsive = '@import "tabs-responsive.less";',
+            insertPopupResponsive = '@import "popups-responsive.less";';
+      }
 
   console.log(this.tabUse);
 
   if(this.tabUse == true) {
     file = file.replace(hook, insertTab+'\n'+hook);
-    responsiveFile = responsiveFile.replace(hook, insertTabResponsive+'\n'+hook);
+    if(this.responsiveUse) {
+      responsiveFile = responsiveFile.replace(hook, insertTabResponsive+'\n'+hook);
+      responsiveFile = responsiveFile.replace(hook, insertPopupResponsive+'\n'+hook);
+    }
   } 
 
   if(this.popupUse == true) {
@@ -235,6 +243,8 @@ HousestylesGenerator.prototype.styleLessChanges = function styleLessChanges() {
   } 
 
   this.write(path,file);
-  this.write(responsivePath, responsiveFile);
+  if(this.responsiveUse) {
+    this.write(responsivePath, responsiveFile);
+  }
 
 };
