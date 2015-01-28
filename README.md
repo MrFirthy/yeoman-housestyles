@@ -31,10 +31,10 @@ You are all set up!
 You will be presented with a list of options:  
 
 + Name of project (_Default:_ **_Empty_**) - This will be used for the `<title>` attribute and an `<h1>` on the home page  
++ Responsive styles? (_Default:_ **_True_**) - Whether to include Tangent Snowball's default responsive styles
 + Features (_Default:_ **_True_**) - A checkbox that enables you to select/deselect features for the project. These include: 
   * Icomoon (a third-party icon font used in Tangent Snowball's housestyles)  
   * Modernizr (a third-party service used for feature detection)  
-  * Responsive styles (Tangent Snowball's default responsive styles)  
 + LESS Features (Aspects of the standard house styles):  
   * Alerts  
   * Tabs  
