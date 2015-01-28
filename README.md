@@ -20,13 +20,13 @@ Once these have been installed, clone the repository and `cd` into it. Then run:
 This will create a link between this code and Yeoman so it can be recognised as a generator.  
 
 You are all set up!  
-
+  
 ---
 
 ## Using the generator:  
 
 + Create a directory and `cd` into it.  
-+ run `yo housestyles --force` (the force is to automate the ovveriding of the CSS files when they are customised)  
++ run `yo housestyles --force` (the force is to automate the overriding of the CSS files when they are customised)  
 
 You will be presented with a list of options:  
 
@@ -40,7 +40,7 @@ You will be presented with a list of options:
   * Tabs  
   * Icons  
   * Popups
-  
+   
 ---
 
 ## Questions  
